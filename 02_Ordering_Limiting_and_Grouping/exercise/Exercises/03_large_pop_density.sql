@@ -4,6 +4,6 @@
 -- (9 rows)
 
 SELECT city_name, population, area, (population/area) AS population_density FROM city WHERE (population/area) > 5000
-ORDER BY population DESC;
+ORDER BY (population/area) DESC;
 
 --need to order by population density
