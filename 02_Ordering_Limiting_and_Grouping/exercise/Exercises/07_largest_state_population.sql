@@ -2,3 +2,4 @@
 -- Expected answer is around 39,500,000
 -- (1 row)
 
+SELECT population AS largest_state_population FROM state ORDER BY population DESC LIMIT 1;

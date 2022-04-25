@@ -2,3 +2,4 @@
 -- Expected answer is around 4,000
 -- (1 row)
 
+SELECT area AS smallest_northeast_area FROM state WHERE census_region = 'Northeast' ORDER BY area ASC LIMIT 1;
