@@ -1,6 +1,7 @@
 package com.techelevator.projects.dao;
 
 import com.techelevator.projects.model.Department;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public interface DepartmentDao {
 	 *
 	 * @return all departments as Department objects in a List
 	 */
+
 	public List<Department> getAllDepartments();
 
 	/**
@@ -30,4 +32,5 @@ public interface DepartmentDao {
 	 */
 	public void updateDepartment(Department updatedDepartment);
 
-}
+		}
+

@@ -1,7 +1,10 @@
 package com.techelevator.projects.dao;
 
 import com.techelevator.projects.model.Project;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface ProjectDao {
@@ -15,12 +18,16 @@ public interface ProjectDao {
 	 */
 	public Project getProject(Long projectId);
 
+
+
 	/**
 	 * Get a list of all projects.
-	 * 
+	 *
 	 * @return all projects as Project objects in a List
 	 */
-	public List<Project> getAllProjects();
+	public List<Project> getAllProjects() ;
+
+
 
 	/**
 	 * Inserts a new project into the datastore.
@@ -30,6 +37,7 @@ public interface ProjectDao {
 	 */
 	public Project createProject(Project newProject);
 
+
 	/**
 	 * Removes a project from the datastore, which requires deleting
 	 * records from multiple tables.
@@ -37,6 +45,5 @@ public interface ProjectDao {
 	 * @param projectId the id of the project to remove
 	 */
 	public void deleteProject(Long projectId);
-
 
 }
