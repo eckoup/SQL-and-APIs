@@ -59,7 +59,7 @@ public class JdbcProjectDao implements ProjectDao {
 		String deleteProjectSql = "DELETE FROM project WHERE project_id = ?;";
 		jdbcTemplate.update(deleteProjectSql, projectId);
 
-	}
+	}while( )
 
 	private Project mapRowToProject (SqlRowSet set){
 		Project project = new Project();

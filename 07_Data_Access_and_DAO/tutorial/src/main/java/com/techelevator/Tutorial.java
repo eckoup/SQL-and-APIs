@@ -19,10 +19,7 @@ public class Tutorial {
     public static void main(String[] args) {
         BasicDataSource dataSource = new BasicDataSource();
         // Step One: Configure the database connection
-
-
-        Tutorial tutorial = new Tutorial(dataSource);
-        tutorial.run();
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/EmployeeProject");
     }
 
     public Tutorial(DataSource dataSource) {

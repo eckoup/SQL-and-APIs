@@ -20,6 +20,7 @@ public class Auction {
     }
 
     public int getId() {
+
         return id;
     }
 
