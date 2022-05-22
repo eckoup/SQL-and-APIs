@@ -77,6 +77,12 @@
  			<version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.techelevator</groupId>
+            <artifactId>m02d12-http-web-services-POST-tutorial-final</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
     <build>

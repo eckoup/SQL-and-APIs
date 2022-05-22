@@ -1,6 +1,7 @@
 package com.techelevator.auctions.services;
 
 import com.techelevator.util.BasicLogger;
+import com.techelevator.util.BasicLoggerException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,18 +18,57 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(newAuction, headers);
+        Auction auction = null;
+        try {
+            auction = restTemplate.postForObject(API_BASE_URL, entity, Auction.class);
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+            try {
+                BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+            } catch (BasicLoggerException ble) {
+                System.out.println(ble.getMessage());
+            }
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return auction;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(updatedAuction, headers);
+        boolean success = false;
+        try {
+            restTemplate.put(API_BASE_URL + updatedAuction.getId(), entity);
+            success = true;
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return success;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+boolean success = false;
+try{
+    restTemplate.delete(API_BASE_URL+ auctionId);
+    success = true;
+} catch (RestClientResponseException e) {
+    BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+    try {
+        BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+    } catch (BasicLoggerException ble) {
+        System.out.println(ble.getMessage());
+    }
+} catch (ResourceAccessException e) {
+    BasicLogger.log(e.getMessage());
+}
+        return success;
     }
 
     public Auction[] getAllAuctions() {
