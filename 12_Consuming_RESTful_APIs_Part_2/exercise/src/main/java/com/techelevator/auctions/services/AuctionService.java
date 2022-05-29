@@ -18,7 +18,7 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        HttpHeaders headers = new HttpHeaders();
+       HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Auction> entity = new HttpEntity<>(newAuction, headers);
         Auction auction = null;
@@ -124,5 +124,7 @@ try{
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new HttpEntity<>(auction, headers);
     }
+
+
 
 }

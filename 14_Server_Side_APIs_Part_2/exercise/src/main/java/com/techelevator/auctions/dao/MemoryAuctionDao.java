@@ -2,12 +2,11 @@ package com.techelevator.auctions.dao;
 
 import com.techelevator.auctions.exception.AuctionNotFoundException;
 import com.techelevator.auctions.model.Auction;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import org.springframework.stereotype.Component;
 
 @Component
 public class MemoryAuctionDao implements AuctionDao {
