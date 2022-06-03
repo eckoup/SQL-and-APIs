@@ -3,6 +3,7 @@ package com.techelevator.auctions.dao;
 import com.techelevator.auctions.exception.AuctionNotFoundException;
 import com.techelevator.auctions.model.Auction;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
 public interface AuctionDao {
@@ -20,4 +21,5 @@ public interface AuctionDao {
     Auction update(Auction auction, int id) throws AuctionNotFoundException;
 
     void delete(int id) throws AuctionNotFoundException;
+
 }
